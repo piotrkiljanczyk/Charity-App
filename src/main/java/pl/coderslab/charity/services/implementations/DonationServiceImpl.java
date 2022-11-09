@@ -12,4 +12,14 @@ public class DonationServiceImpl implements DonationService {
     public DonationServiceImpl(DonationRepository donationRepository) {
         this.donationRepository = donationRepository;
     }
+
+    @Override
+    public Long giveDonationBags() {
+        return donationRepository.count();
+    }
+
+    @Override
+    public Long giveDonationSum() {
+        return donationRepository.getDonationSum().orElse(0L);
+    }
 }
